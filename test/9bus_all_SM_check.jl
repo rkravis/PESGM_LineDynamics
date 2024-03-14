@@ -42,7 +42,6 @@ else
     sys = ETL.build_new_impedance_model!(sys, p1, dyn_lines, "")
 end
 
-
 p1.perturbation_params.crc_params = CRCParam(DynamicGenerator, sm_bus, :V_ref, 0.95)
 perturbation = choose_disturbance(sys, p1.perturbation, p1)
 
@@ -53,11 +52,3 @@ else
     sim = build_sim(sys, tspan, perturbation, dyn_lines, p1)
 end
 ss = small_signal_analysis(sim)
-
-res = [];
-for load_scale = collect(0.0:0.1:1.0)
-    ss = check_SM(load_scale)
-    push!(res, real(ss.eigenvalues[end-2:end]))
-
-end
-res
