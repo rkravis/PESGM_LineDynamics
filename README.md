@@ -1,4 +1,4 @@
-# PESGM_LineDynamics.jl
+# PESGM_LineDynamics
 
 Code supporting the following paper, accepted at IEEE PES General Meeting 2024:
 
